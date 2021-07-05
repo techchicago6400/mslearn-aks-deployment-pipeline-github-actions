@@ -41,9 +41,7 @@ jobs:
           # AKS Cluster Name
           cluster-name: contoso-video
 
-      - name: Run Helm Deploy
-        run:
-        # ... File omitted
+
       - name: Run Helm Deploy
         run: |
           helm upgrade \
