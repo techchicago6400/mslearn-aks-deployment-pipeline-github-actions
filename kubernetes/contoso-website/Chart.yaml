@@ -1,0 +1,4 @@
+apiVersion: v2
+name: contoso-website
+description: AKS and K8s Actions Pepper and Egg Demo
+version: 0.1.0
