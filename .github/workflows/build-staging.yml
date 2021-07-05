@@ -7,7 +7,11 @@ on:
 jobs:
   build_push_image:
     runs-on: ubuntu-latest
-
+    
+   steps:
+      run: curl https://get.datree.io | /bin/bash
+      run: datree test ~/.mslearn-aks-deployment-pipeline-github-actions/kubernetes/contoso-website/templates/deployment.yaml
+      
     steps:
       - uses: actions/checkout@v2
 
@@ -19,9 +23,7 @@ jobs:
           registry: ${{ secrets.ACR_NAME }}
           repository: contoso-website
          # tags: latest
-     steps:
-        run: curl https://get.datree.io | /bin/bash
-        run: datree test ~/.mslearn-aks-deployment-pipeline-github-actions/kubernetes/contoso-website/templates/deployment.yaml
+
 
   deploy:
     runs-on: ubuntu-latest
