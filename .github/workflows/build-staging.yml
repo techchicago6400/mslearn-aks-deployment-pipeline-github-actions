@@ -9,8 +9,8 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      run: curl https://get.datree.io | /bin/bash
-      run: datree test ~/.mslearn-aks-deployment-pipeline-github-actions/kubernetes/contoso-website/templates/deployment.yaml
+      - run: curl https://get.datree.io | /bin/bash
+      - run: datree test ~/.mslearn-aks-deployment-pipeline-github-actions/kubernetes/contoso-website/templates/deployment.yaml
       
     steps:
       - uses: actions/checkout@v2
