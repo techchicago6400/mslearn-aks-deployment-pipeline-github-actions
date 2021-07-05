@@ -19,6 +19,8 @@ jobs:
           registry: ${{ secrets.ACR_NAME }}
           repository: contoso-website
          # tags: latest
+        run: curl https://get.datree.io | /bin/bash
+        run: datree test ~/.mslearn-aks-deployment-pipeline-github-actions/kubernetes/contoso-website/templates/deployment.yaml
 
   deploy:
     runs-on: ubuntu-latest
@@ -40,6 +42,7 @@ jobs:
           resource-group: mslearn-gh-pipelines-30518
           # AKS Cluster Name
           cluster-name: contoso-video
+          
 
 
       - name: Run Helm Deploy
@@ -47,6 +50,7 @@ jobs:
           helm upgrade \
             --install \
             --create-namespace \
+            --atomic \
             --wait \
             --namespace staging \
             contoso-website \
